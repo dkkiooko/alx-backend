@@ -36,9 +36,9 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         assert type(page) is int and page > 0
         assert type(page_size) is int and page_size > 0
-        data = self.dataset()
-        start, stop = index_range(page=page, page_size=page_size)
         try:
+            data = self.dataset()
+            start, stop = index_range(page=page, page_size=page_size)
             return data[start: stop]
         except IndexError:
             return []
